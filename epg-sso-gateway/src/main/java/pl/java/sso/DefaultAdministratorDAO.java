@@ -2,8 +2,13 @@ package pl.java.sso;
 
 import java.util.List;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 public class DefaultAdministratorDAO implements AdministratorDAO {
+
+	@PersistenceContext(unitName = "dataPU")
+	EntityManager em;
 
 	@Override
 	public Administrator getByLogin(String login) {
@@ -12,6 +17,6 @@ public class DefaultAdministratorDAO implements AdministratorDAO {
 
 	@Override
 	public List<Administrator> findByProperties(Class aClass, Map<String, Object> params) {
-		throw new UnsupportedOperationException("Not supported yet.");
+		return em.createQuery("from Administrator").getResultList();
 	}
 }

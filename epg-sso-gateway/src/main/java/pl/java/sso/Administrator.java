@@ -12,8 +12,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "josso_user")
-@NamedQueries({
-	@NamedQuery(name = "JossoUser.findAll", query = "SELECT j FROM JossoUser j")})
+//@NamedQueries({
+//	@NamedQuery(name = "JossoUser.findAll", query = "SELECT j FROM JossoUser j")})
 public class Administrator implements Serializable {
 
 	private static final long serialVersionUID = 1L;

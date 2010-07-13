@@ -14,7 +14,7 @@ environments {
 			url = "jdbc:mysql://localhost/test"
 			driverClassName = "com.mysql.jdbc.Driver"
 			dialect ="org.hibernate.dialect.MySQLDialect"
-			username = "root"
+			username = "roo"
 			password = "admin"
 		}
 	}
@@ -30,7 +30,7 @@ environments {
 			url = "jdbc:mysql://localhost/test"
 			driverClassName = "com.mysql.jdbc.Driver"
 			dialect ="org.hibernate.dialect.MySQLDialect"
-			username = "root"
+			username = "roo"
 			password = "admin"
 		}
 	}
