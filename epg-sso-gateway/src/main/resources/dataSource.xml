@@ -13,29 +13,31 @@
                            http://www.springframework.org/schema/util
                            http://www.springframework.org/schema/util/spring-util-2.5.xsd">
     
-    <bean id="epgDao" class="pl.java.sso.DefaultAdministratorDAO"/>
+	<bean id="epgDao" class="pl.java.sso.DefaultAdministratorDAO"/>
 
-    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/testdb"/>
-    </bean>
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/testdb"/>
+	</bean>
 
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="persistenceUnitName" value="dataPU"/>
-        <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="database" value="MYSQL"/>
-                <property name="generateDdl" value="true"/>
-            </bean>
-        </property>
-    </bean>
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<!--<property name="dataSource" ref="dataSource"/> -->
+		<property name="persistenceUnitName" value="dataPU"/>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="database" value="MYSQL"/>
+				<property name="generateDdl" value="false"/>
+			</bean>
+		</property>
+	</bean>
 
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
 
-    <context:annotation-config/>
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<context:annotation-config/>
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

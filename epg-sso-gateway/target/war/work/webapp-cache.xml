@@ -14,10 +14,12 @@
           <string>selfservices/lostpassword/requestAdditionalChallenges.jsp</string>
           <string>selfservices/lostpassword/requestAdditionalConfirmationChallenges.jsp</string>
           <string>selfservices/lostpassword/requestChallenges.jsp</string>
+          <string>signon/index.jsp</string>
           <string>signon/info.jsp</string>
           <string>signon/loginResult.jsp</string>
           <string>signon/usernamePasswordLogin.jsp</string>
           <string>standard-error.jsp</string>
+          <string>WEB-INF/applicationContext.xml</string>
           <string>WEB-INF/classes/ApplicationResources.properties</string>
           <string>WEB-INF/classes/passwordVerificationEmail.vm</string>
           <string>WEB-INF/jboss-web.xml</string>
@@ -132,6 +134,7 @@
           <string>WEB-INF/lib/javassist-3.4.GA.jar</string>
           <string>WEB-INF/lib/jdbc-stdext-2.0.jar</string>
           <string>WEB-INF/lib/mysql-connector-java-5.1.13.jar</string>
+          <string>WEB-INF/lib/slf4j-simple-1.6.1.jar</string>
         </pathsSet>
       </path-set>
     </entry>

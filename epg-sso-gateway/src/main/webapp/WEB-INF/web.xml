@@ -58,6 +58,10 @@ Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
 		<listener-class>org.josso.gateway.signon.SSOContextListener</listener-class>
 	</listener>
 
+<listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+
     <!-- ======================================================= -->
     <!-- STRUTS Action Servlet Configuraiton -->
     <!-- ======================================================= -->
