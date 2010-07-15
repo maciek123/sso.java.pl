@@ -70,7 +70,7 @@ public class DefaultIdentityStore implements IdentityStore, CredentialStore {
 	}
 
 	private Administrator findUserByLogin(String login) throws NoSuchUserException {
-		Map<String, Object> params = new HashMap<String, Object>();
+	/*	Map<String, Object> params = new HashMap<String, Object>();
 		params.put("login", login);
 		List<Administrator> admins = adminDao.findByProperties(Administrator.class, params);
 		if (admins.isEmpty()) {
@@ -78,8 +78,8 @@ public class DefaultIdentityStore implements IdentityStore, CredentialStore {
 		} else if (admins.size() > 1) {
 			throw new NoSuchUserException("Can not find user with login: " + login
 				+ " too many users with the same login!");
-		}
-		return admins.get(0);
+		}*/
+		return adminDao.getByLogin(login);
 	}
 
 	private BaseRole[] getRolesForAdmin(Administrator administrator) {

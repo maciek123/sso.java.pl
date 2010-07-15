@@ -11,6 +11,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@Entity
 @Table(name = "josso_user")
 //@NamedQueries({
 //	@NamedQuery(name = "JossoUser.findAll", query = "SELECT j FROM JossoUser j")})
