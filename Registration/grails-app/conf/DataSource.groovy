@@ -1,5 +1,6 @@
 dataSource {
 	pooled = true
+	jndiName = "java:comp/env/testdb"
 }
 hibernate {
 	cache.use_second_level_cache = true

@@ -87,5 +87,7 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'register.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'register.UserRole'
 grails.plugins.springsecurity.authority.className = 'register.Role'
 grails.plugins.springsecurity.providerNames = ['myAuthenticationProvider',
-                                               'anonymousAuthenticationProvider',
-                                               'rememberMeAuthenticationProvider']
+                                               'myAuthenticationProvider',
+                                               'myAuthenticationProvider']
+
+                                               
