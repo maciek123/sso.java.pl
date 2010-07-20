@@ -1,6 +1,6 @@
 dataSource {
 	pooled = true
-	jndiName = "java:comp/env/testdb"
+//	jndiName = "java:comp/env/jdbc/testdb"
 }
 hibernate {
 	cache.use_second_level_cache = true
@@ -17,6 +17,7 @@ environments {
 			dialect ="org.hibernate.dialect.MySQLDialect"
 			username = "roo"
 			password = "admin"
+			readonly = false
 		}
 	}
 	test {
