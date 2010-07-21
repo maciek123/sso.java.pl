@@ -16,9 +16,11 @@ public class SSOAuthenticationProvider implements AuthenticationProvider {
 	public SSOAuthenticationProvider() {
 		try {
 			WebserviceGatewayServiceLocator wgsl = new WebserviceGatewayServiceLocator();
-			wgsl.setEndpoint("localhost:8080/epg-sso-gateway");
+			wgsl.setEndpoint("localhost:8080");
+			wgsl.setServicesWebContext("epg-sso-gateway");
 			ips = wgsl.getSSOIdentityProvider();
 		} catch (Exception ex) {
+			System.out.println("...");
 			Logger.getLogger(SSOAuthenticationProvider.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
@@ -30,9 +32,10 @@ public class SSOAuthenticationProvider implements AuthenticationProvider {
 			System.out.println(a.getPrincipal());
 			try {
 				System.out.println("..");
-				System.out.print(ips.assertIdentityWithSimpleAuthentication(a.getPrincipal().toString(), a.getCredentials().toString(), a.getCredentials().toString()));
+				System.out.print(ips.assertIdentityWithSimpleAuthentication("josso", a.getPrincipal().toString(), a.getCredentials().toString()));
 			} catch (IdentityProvisioningException e) {
 				System.out.println(e.getMessage());
+				e.printStackTrace(System.out);
 				throw new AuthenticationException("invalid username/password") {
 				};
 			}
