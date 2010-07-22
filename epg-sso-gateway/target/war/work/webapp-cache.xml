@@ -55,7 +55,6 @@
           <string>WEB-INF/classes/pl/java/sso/PasswordUtils.class</string>
           <string>WEB-INF/classes/pl/java/sso/SaltCredential.class</string>
           <string>WEB-INF/classes/pl/java/sso/SSOAuthenticationProvider$1.class</string>
-          <string>WEB-INF/classes/pl/java/sso/SSOAuthenticationProvider$2.class</string>
           <string>WEB-INF/classes/pl/java/sso/SSOAuthenticationProvider.class</string>
           <string>WEB-INF/lib/josso-core-1.8.0.jar</string>
           <string>WEB-INF/lib/josso-common-1.8.0.jar</string>

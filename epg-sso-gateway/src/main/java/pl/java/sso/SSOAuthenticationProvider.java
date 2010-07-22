@@ -34,8 +34,6 @@ public class SSOAuthenticationProvider implements AuthenticationProvider {
 				System.out.println("..");
 				System.out.print(ips.assertIdentityWithSimpleAuthentication("josso", a.getPrincipal().toString(), a.getCredentials().toString()));
 			} catch (IdentityProvisioningException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace(System.out);
 				throw new AuthenticationException("invalid username/password") {
 				};
 			}
