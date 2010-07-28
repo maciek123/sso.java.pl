@@ -83,7 +83,7 @@ public class DefaultIdentityStore implements IdentityStore, CredentialStore {
 	}
 
 	private BaseRole[] getRolesForAdmin(Administrator administrator) {
-		List<String> roles = new ArrayList<String>();
+		List<String> roles = adminDao.findRolesForAdmin(administrator);
 		List<BaseRole> baseRoles = new ArrayList<BaseRole>();
 		for (String role : roles) {
 			baseRoles.add(new BaseRoleImpl(role));

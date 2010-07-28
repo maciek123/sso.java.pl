@@ -1,0 +1,155 @@
+div#grid {
+    width: 700px;
+}
+
+#grid table {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: repeat-y;
+    font-size: 11px;
+    padding: 3px;
+    border: 1px solid #666;
+    width: 700px;
+    margin: 0px 0 0px 0 !important;
+}
+
+#grid td {
+    padding: 2px 4px 2px 4px !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+#grid th {
+    padding: 2px 4px 2px 4px !important;
+    text-align: left;
+    vertical-align: top;
+}
+
+#grid thead tr {
+    background-color: #DEE0E4;
+}
+
+#grid th.sorted {
+    background-color: inherit;
+}
+
+#grid th a, th a:visited {
+    color: black;
+}
+
+#grid th a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+#grid th.sorted a, th.sortable a {
+    background-position: left;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    display: block;
+    width: 100%;
+}
+
+#grid th.order1 a {
+    background-image: url( ../images/arrow_down.png );
+}
+
+#grid th.order2 a {
+    background-image: url( ../images/arrow_up.png );
+}
+
+#grid th.status {
+    text-align: center;
+    width: 20pt;
+}
+
+#grid th.run {
+    text-align: center;
+    width: 20pt;
+}
+
+#grid td.status {
+    text-align: center;
+    width: 20pt;
+}
+
+#grid td.run {
+    text-align: center;
+    width: 20pt;
+}
+
+#grid tr.odd {
+    background-color: #DEE0E4;
+}
+
+#grid tr.tableRowEven, tr.even {
+    background-color: #EEF1F6;
+}
+
+#grid div.exportlinks {
+    background-color: #eee;
+    border: 1px dotted #999;
+    padding: 2px 4px 2px 4px;
+    margin: 2px 0 10px 0;
+    width: 79%;
+}
+
+#grid span.export {
+    padding: 0 4px 1px 20px;
+    display: inline;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#grid span.excel {
+    background-image: url( ../images/ico_file_excel.png );
+}
+
+#grid span.csv {
+    background-image: url( ../images/ico_file_csv.png );
+}
+
+#grid span.xml {
+    background-image: url( ../images/ico_file_xml.png );
+}
+
+#grid span.pdf {
+    background-image: url( ../images/ico_file_pdf.png );
+}
+
+#grid span.rtf {
+    background-image: url( ../images/ico_file_rtf.png );
+}
+
+#grid span.pagebanner {
+    background-color: #eee;
+    border: 1px dotted #999;
+    padding: 2px 4px 2px 4px;
+    width: 79%;
+    margin-top: 10px;
+    display: block;
+    border-bottom: none;
+}
+
+#grid span.pagelinks {
+    background-color: #eee;
+    border: 1px dotted #999;
+    padding: 2px 4px 2px 4px;
+    width: 79%;
+    display: block;
+    border-top: none;
+    margin-bottom: 25px;
+}
+
+#grid td.grid_column_value {
+    text-align: right;
+}
+
+#grid td.grid_column_button {
+    text-align: center;
+}
+
+#grid tr.total {
+    font-weight: bold;
+}

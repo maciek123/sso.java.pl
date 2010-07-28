@@ -13,7 +13,7 @@
                            http://www.springframework.org/schema/util
                            http://www.springframework.org/schema/util/spring-util-2.5.xsd">
     
-	<bean id="epgDao" class="pl.java.sso.DefaultAdministratorDAO"/>
+	<bean id="ssoDao" class="pl.java.sso.DefaultAdministratorDAO"/>
 
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName" value="java:comp/env/jdbc/testdb"/>
@@ -28,12 +28,12 @@
 				<property name="generateDdl" value="false"/>
 			</bean>
 		</property>
-		<property name="jpaProperties">
+<!--		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 			</props>
-		</property>
+		</property> -->
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

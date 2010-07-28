@@ -7,12 +7,11 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-   <!-- <context:property-placeholder location="classpath:epg.properties"/> -->
 
     <import resource="dataSource.xml"/>
 
     <bean id="josso-identity-store" class="pl.java.sso.DefaultIdentityStore" scope="singleton">
-        <property name="adminDao" ref="epgDao"/>
+        <property name="adminDao" ref="ssoDao"/>
     </bean>
 
     <bean id="josso-basic-authentication" class="pl.java.sso.DefaultUsernamePasswordAuthScheme">

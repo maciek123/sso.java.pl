@@ -153,10 +153,10 @@ public class Administrator implements Serializable {
 	}
 
 	public String getPasswordHash() {
-		throw new UnsupportedOperationException("Not yet implemented");
+		return password;
 	}
 
 	public String getPasswordSalt() {
-		throw new UnsupportedOperationException("Not yet implemented");
+		return "";
 	}
 }

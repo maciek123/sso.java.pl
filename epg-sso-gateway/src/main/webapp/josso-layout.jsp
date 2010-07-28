@@ -20,7 +20,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
     <tr>
-        <td class="header_main"><span>Login to EPG</span></td>
+        <td class="header_main"><span>Login</span></td>
         <td class="header_main" style="text-align: right;">
 
         </td>
