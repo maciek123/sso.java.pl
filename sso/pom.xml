@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pl.java</groupId>
+	<artifactId>sso</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>JOSSO JUG</name>
+
+	<properties>
+		<josso.version>1.8.0</josso.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<netbeans.hint.deploy.server>Tomcat60</netbeans.hint.deploy.server>
+	</properties>
+
+
+	<dependencies>
+
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-core</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-db-assertionstore</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-assertionidgen</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-memory-assertionstore</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-assertionmgr</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-auditmgr</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-logger-audittrailhandler</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-authenticator</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-basic-authscheme</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-bind-authscheme</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-ntlm-authscheme</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-strong-authscheme</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-rememberme-authscheme</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-eventmgr</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-protocol</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-db-identitystore</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-ldap-identitystore</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-memory-identitystore</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-identitymgr</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-identityprovider</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-appctx-secdomainmatcher</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-secdomainregistry</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-secdomainselector</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-simple-secdomainmatcher</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-vhost-secdomainmatcher</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-db-sessionstore</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-sessionidgen</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-memory-sessionstore</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-sessionmgr</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-serialized-sessionstore</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-ws</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-passwordmanager</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-default-passwordgenerator</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-email-passworddistributor</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-simple-lostpasswordprocess</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+
+
+        <!-- 3rd party dependencies -->
+
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>0.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>3.2.5.ga</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>ejb3-persistence</artifactId>
+			<version>1.0.1.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.3.2.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.sql</groupId>
+			<artifactId>jdbc-stdext</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>3.0.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-protocol-client</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+	 <dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>servlet-api</artifactId>
+	  <version>2.5</version>
+	 </dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>josso-m2-repo</id>
+			<name>JOSSO Maven2 Repository</name>
+			<url>http://repository.josso.org</url>
+			<layout>default</layout>
+			<releases>
+				<checksumPolicy>fail</checksumPolicy>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<checksumPolicy>fail</checksumPolicy>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<url>http://download.java.net/maven/2/</url>
+			<id>hibernate-persistence</id>
+			<layout>default</layout>
+			<name>Repository for library Library[hibernate-persistence]</name>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>sso</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

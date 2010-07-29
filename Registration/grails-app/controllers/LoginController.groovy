@@ -46,8 +46,10 @@ class LoginController {
 			return
 		}
 
+		redirect url :"http://127.0.0.1:8080/sso/signon/usernamePasswordLogin.do?josso_back_to=" + session.getAttribute("SPRING_SECURITY_SAVED_REQUEST_KEY").requestURL
 		String view = 'auth'
 		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+		def link = session.getAttribute("SPRING_SECURITY_SAVED_REQUEST_KEY").requestURL
 		render view: view, model: [postUrl: postUrl,
 		                           rememberMeParameter: config.rememberMe.parameter]
 	}

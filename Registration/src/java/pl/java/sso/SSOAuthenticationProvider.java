@@ -21,7 +21,7 @@ public class SSOAuthenticationProvider implements AuthenticationProvider {
 	public SSOAuthenticationProvider() {
 		try {
 			wgsl.setEndpoint("localhost:8080");
-			wgsl.setServicesWebContext("epg-sso-gateway");
+			wgsl.setServicesWebContext("sso");
 			ips = wgsl.getSSOIdentityProvider();
 		} catch (Exception ex) {
 			Logger.getLogger(SSOAuthenticationProvider.class.getName()).log(Level.SEVERE, null, ex);

@@ -25,6 +25,6 @@
 Redirects the user to the proper login page.  Configured as the login url the web.xml for this application.
 -->
 <%
-response.sendRedirect("http://127.0.0.1:8080/sso/signon/usernamePasswordLogin.do?josso_back_to=" + session.getAttribute("SPRING_SECURITY_SAVED_REQUEST_KEY").requestURL);
+    response.sendRedirect("http://localhost:8080/sso/signon/");
     //response.sendRedirect(request.getContextPath() + "/josso_login/");
 %>
