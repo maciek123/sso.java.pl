@@ -8,7 +8,14 @@ import org.springframework.security.authentication.DisabledException
 import org.springframework.security.authentication.LockedException
 import org.springframework.security.core.context.SecurityContextHolder as SCH
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter
+import org.springframework.security.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+import javax.servlet.http.Cookie;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import pl.java.sso.JOSSOAuthenticationProcessingFilter;
+import pl.java.sso.JOSSOUtils;
+import pl.java.sso.JOSSOAuthentication;
 
 class LoginController {
 
@@ -38,20 +45,33 @@ class LoginController {
 	 * Show the login page.
 	 */
 	def auth = {
-
 		def config = SpringSecurityUtils.securityConfig
+		def a = SecurityContextHolder.getContext().getAuthentication()
 
 		if (springSecurityService.isLoggedIn()) {
-			redirect uri: config.successHandler.defaultTargetUrl
+			redirect url : session.getAttribute("SPRING_SECURITY_SAVED_REQUEST_KEY").requestURL
 			return
+		}
+		def id = null
+		for(Cookie c : request.request.request.request.cookies){
+			if (c.name == "JSESSIONID"){
+				id = c.value
+			}
+		}
+
+		if(id != null){
+			try{
+				JOSSOAuthentication auth= new JOSSOAuthentication(id);
+			SecurityContextHolder.context.authentication = auth
+			}
+			catch(Exception e) {
+				redirect url :"http://127.0.0.1:8080/sso/signon/usernamePasswordLogin.do?josso_back_to=" + session.getAttribute("SPRING_SECURITY_SAVED_REQUEST_KEY").requestURL
+			}
+
 		}
 
 		redirect url :"http://127.0.0.1:8080/sso/signon/usernamePasswordLogin.do?josso_back_to=" + session.getAttribute("SPRING_SECURITY_SAVED_REQUEST_KEY").requestURL
-		String view = 'auth'
-		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
-		def link = session.getAttribute("SPRING_SECURITY_SAVED_REQUEST_KEY").requestURL
-		render view: view, model: [postUrl: postUrl,
-		                           rememberMeParameter: config.rememberMe.parameter]
+
 	}
 
 	/**
@@ -59,7 +79,7 @@ class LoginController {
 	 */
 	def denied = {
 		if (springSecurityService.isLoggedIn() &&
-				authenticationTrustResolver.isRememberMe(SCH.context?.authentication)) {
+			authenticationTrustResolver.isRememberMe(SCH.context?.authentication)) {
 			// have cookie but the page is guarded with IS_AUTHENTICATED_FULLY
 			redirect action: full, params: params
 		}
@@ -71,8 +91,8 @@ class LoginController {
 	def full = {
 		def config = SpringSecurityUtils.securityConfig
 		render view: 'auth', params: params,
-			model: [hasCookie: authenticationTrustResolver.isRememberMe(SCH.context?.authentication),
-			        postUrl: "${request.contextPath}${config.apf.filterProcessesUrl}"]
+		model: [hasCookie: authenticationTrustResolver.isRememberMe(SCH.context?.authentication),
+			postUrl: "${request.contextPath}${config.apf.filterProcessesUrl}"]
 	}
 
 	/**

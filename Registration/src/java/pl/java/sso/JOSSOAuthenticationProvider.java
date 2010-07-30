@@ -1,14 +1,11 @@
 package pl.java.sso;
 
-
 import org.josso.gateway.GatewayServiceLocator;
 import org.josso.gateway.identity.SSORole;
 import org.josso.gateway.identity.exceptions.NoSuchUserException;
 import org.josso.gateway.identity.exceptions.SSOIdentityException;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.security.providers.AuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.userdetails.User;
 import org.springframework.security.userdetails.UserDetails;
 import org.springframework.security.userdetails.UserDetailsService;
@@ -18,7 +15,8 @@ import org.springframework.util.StringUtils;
 import java.security.Principal;
 import java.util.HashSet;
 import java.util.Set;
-import org.springframework.security.Authentication;
+import org.josso.gateway.WebserviceGatewayServiceLocator;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.AuthenticationException;
 import org.springframework.security.AuthenticationServiceException;
 import org.springframework.security.GrantedAuthority;
@@ -28,8 +26,19 @@ public class JOSSOAuthenticationProvider implements AuthenticationProvider {
 
 	private static final org.slf4j.Logger log = LoggerFactory.getLogger(JOSSOAuthenticationProvider.class);
 	private GatewayServiceLocator gsl;
-	@Autowired
+//	@Autowired
 	private UserDetailsService authorizationService;
+
+	public JOSSOAuthenticationProvider() {
+		try {
+			WebserviceGatewayServiceLocator wgsl = new WebserviceGatewayServiceLocator();
+			wgsl.setEndpoint("localhost:8080");
+			wgsl.setServicesWebContext("sso");
+			gsl = wgsl;
+		} catch (Exception ex) {
+			log.error(null, ex);
+		}
+	}
 
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		JOSSOAuthenticationToken auth = (JOSSOAuthenticationToken) authentication;
@@ -60,7 +69,7 @@ public class JOSSOAuthenticationProvider implements AuthenticationProvider {
 		JOSSOAuthenticationToken rv = new JOSSOAuthenticationToken(auth.getJossoSessionId(), details.getAuthorities());
 		rv.setDetails(details);
 		rv.setAuthenticated(true);
-		return rv;
+		return (Authentication) rv;
 	}
 
 	protected UserDetails retrieveUser(String jossoSessionId, String username, JOSSOAuthenticationToken authentication) throws Exception, SSOIdentityException {
@@ -87,7 +96,7 @@ public class JOSSOAuthenticationProvider implements AuthenticationProvider {
 		return new User(username, "", true, true, true, true, authorities.toArray(new GrantedAuthority[authorities.size()]));
 	}
 
-	@Required
+//	@Required
 	public void setGatewayServiceLocator(GatewayServiceLocator gsl) throws Exception {
 		this.gsl = gsl;
 	}
